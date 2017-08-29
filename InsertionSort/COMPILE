@@ -1,0 +1,3 @@
+gcc -c insertionSort.c 
+gcc -c main.c
+gcc insertionSort.o main.o
