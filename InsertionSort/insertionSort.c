@@ -7,7 +7,7 @@ int insertionSort(int items[], int size) {
 	    items[j] = items[j-1];
 	  }else {
 	    items[j] = item;
-		isReplaced = 1;
+	    isReplaced = 1;
 	    break;
 	  }
 	}
