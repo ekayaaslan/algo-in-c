@@ -1,4 +1,4 @@
-int insertionSort(int items[], int size) {
+int sort(int items[], int size) {
   for(int i=1; i<size; i++) {
     int item = items[i];
     int index = i;
