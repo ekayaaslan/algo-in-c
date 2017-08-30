@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
   for(int i=0; i<size; i++) {
     fscanf(f, "%d", &items[i]);
   }
-  insertionSort(items, size);
+  sort(items, size);
   for(int i=0; i<size; i++) {
     printf("%d ", items[i]);
   }
