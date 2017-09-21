@@ -7,3 +7,4 @@ The primary design principle is to be useful like all many others. Some more spe
 2) API methods should return 0 whenever Success. The output of the method should be specified through the parameters.
 3) No bulk allocation from memory, if needed an array of bytes should be provided in the parameter list from the callee.
 4) Avoid using asterixes for pointers if easy to avoid.
+5) Readibility matters.
