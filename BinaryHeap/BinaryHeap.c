@@ -31,21 +31,21 @@ void downheap(int at, int items[], int size) {
   items[cur] = item;
 }
 
-int insert(int item, int items[], int size) {
-  items[size] = item;
-  size ++;
-  upheap(size-1, items);
+int insert(int item, int items[], int size[]) {
+  items[size[0]] = item;
+  size[0] ++;
+  upheap(size[0]-1, items);
   return 0;
 }
 
-int remove(int items[], int size, int ret[]) {
+int remove(int items[], int size[], int ret[]) {
   ret[0] = items[0];
-  if(size > 1) {
-    items[0] = items[size-1];
-    size --;
-    downheap(0, items, size);
+  if(size[0] > 1) {
+    items[0] = items[size[0]-1];
+    size[0] --;
+    downheap(0, items, size[0]);
   }else {
-    size = 0;
+    size[0] = 0;
   }
   return 0;
 }
@@ -68,13 +68,13 @@ int updateAt(int at, int item, int items[], int size) {
   return 0;
 }
 
-int removeAt(int at, int items[], int size) {
-  if(at < size-1) {
-    int item = items[size-1];
-    size --;
-    updateAt(at, item, items, size);
+int removeAt(int at, int items[], int size[]) {
+  if(at < size[0]-1) {
+    int item = items[size[0]-1];
+    size[0] --;
+    updateAt(at, item, items, size[0]);
   }else {
-    size --;
+    size[0] --;
   }
   return 0;
 }
