@@ -1,3 +1,0 @@
-gcc -c sort.c 
-gcc -c main.c
-gcc sort.o main.o

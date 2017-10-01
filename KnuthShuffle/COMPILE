@@ -1,3 +1,0 @@
-gcc -c shuffle.c 
-gcc -c main.c
-gcc shuffle.o main.o
