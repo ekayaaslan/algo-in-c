@@ -1,3 +1,0 @@
-gcc -c greatestCommonDivisor.c
-gcc -c main.c
-gcc greatestCommonDivisor.o main.o
