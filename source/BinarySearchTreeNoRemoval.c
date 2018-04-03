@@ -24,15 +24,6 @@ int insert(int item, int items[], int size[], int left[], int right[]) {
   return 0;
 }
 
-int build(int items[], int size, int left[], int right[]) {
-  int sizeb[1];
-  sizeb[0] = 0;
-  for(int i=0; i<size; i++) {
-    insert(items[i], items, sizeb, left, right);
-  }
-  return 0;
-}
-
 int find(int item, int items[], int size, int left[], int right[], int ret[]) {
   ret[0] = -1;
   if(size > 0) {
@@ -50,4 +41,9 @@ int find(int item, int items[], int size, int left[], int right[], int ret[]) {
     }
   }
   return 0;
+}
+
+int reset(int items[], int size[], int root[], int left[], int right[], int parent[]) {
+  size[0] = 0;
+  root[0] = -1;
 }

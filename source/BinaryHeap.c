@@ -78,3 +78,7 @@ int removeAt(int at, int items[], int size[]) {
   }
   return 0;
 }
+
+int reset(int items[], int size[]) {
+  size[0] = 0;
+}
