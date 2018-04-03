@@ -1,5 +1,2 @@
-This algorithm is known as Knuth shuffle after Donald Knuth. 
-However, a pencil-and-paper version has been described by Ronald Fisher and Frank Yates, 
-hence also known as Fisher–Yates shuffle. The following is the related wiki page:
-
-  https://en.wikipedia.org/wiki/Fisher–Yates_shuffle
+This algorithm is known as Knuth shuffle after Donald Knuth. Also known as Fisher–Yates shuffle.
+https://en.wikipedia.org/wiki/Fisher–Yates_shuffle
