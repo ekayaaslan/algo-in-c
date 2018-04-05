@@ -17,7 +17,7 @@ void downheap(int at, int items[], int size) {
   items[cur] = item;
 }
 
-int sort(int items[], int size) {
+int heapSort(int items[], int size) {
   for(int i=size/2-1; i>=0; i--) {
     downheap(i, items, size);
   }
