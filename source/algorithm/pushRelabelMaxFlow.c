@@ -1,5 +1,6 @@
-#define MIN(X,Y) ((X) < (Y)? (X): (Y))
-#define MAX(X,Y) ((X) > (Y)? (X): (Y))
+int minOf(int x, int y) {
+  return (x<y)? x: y;
+}
 
 void moveToFront(int L[], int index, int pivot) {
   for(int i=index; i>0; i--) {
@@ -16,7 +17,7 @@ void relabel(int vin[], int ein[], int eout[], int weight[], int flow[], int H[]
     int w = (vin[vertex]==pivot)? weight[edge]: 0;
     int f = (vin[vertex]==pivot)? flow[edge]: -flow[edge];
     if(w > f) {
-      minHeight = MIN(minHeight, H[vertex]);
+      minHeight = minOf(minHeight, H[vertex]);
     }
     vertex = next[vertex];
   }
@@ -189,7 +190,7 @@ int pushRelabelMaxFlow(int size, int xadj[], int adj[], int weight[], int source
   }
   /* maxflow */
   for(int edge=0; edge<xadj[size]; edge++) {
-    flow[edge] = MAX(flow[edge], 0);
+    if(flow[edge] < 0) { flow[edge] = 0; }
   }
   computeMaxflow(maxflow, outxadj, outadj, inxadj, inadj, inmap, flow, source);
   return 0;
