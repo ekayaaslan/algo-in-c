@@ -1,4 +1,6 @@
-void move_to_front(int *L, int *_lptr, int u) {
+#include <util.h>
+
+void move_to_front(int* L, int* _lptr, int u) {
   int lptr = *_lptr;
   for(int i=lptr; i>0; i--) {
     L[i] = L[i-1];
@@ -7,8 +9,8 @@ void move_to_front(int *L, int *_lptr, int u) {
   *_lptr = 0;
 }
 
-void relabel(int *iv, int *ie, int *oe, int *wgt, int *flow, int *H, int u, int n, int *next) {
-  int min_heigth = 2 * n;
+void relabel(int* iv, int* ie, int* oe, int* wgt, int* flow, int* H, int u, int n, int* next) {
+  int min_height = 2 * n;
   int v = next[u];
   while(v != u) {
     if(ie[v] == u) {
@@ -27,7 +29,7 @@ void relabel(int *iv, int *ie, int *oe, int *wgt, int *flow, int *H, int u, int 
   H[u] = min_height + 1;
 }
 
-void push(int *E, int df, int u, int *flow, int *iv, int *ie, int *ov, int *oe, int v) {
+void push(int* E, int df, int u, int* flow, int* iv, int* ie, int* ov, int* oe, int v) {
   E[v] += df;
   if(iv[v] == u) {
     int j = ie[v];
@@ -40,7 +42,7 @@ void push(int *E, int df, int u, int *flow, int *iv, int *ie, int *ov, int *oe, 
   }
 }
 
-int compute_max_flow(int *oxadj, int *oadj, int *ixadj, int *iadj, int *imap, int *flow, int s) {
+int compute_max_flow(int* oxadj, int* oadj, int* ixadj, int* iadj, int* imap, int* flow, int s) {
   int maxflow = 0;
   for(int j=oxadj[s]; j<oxadj[s+1]; j++) {
     maxflow += flow[j];
@@ -53,23 +55,23 @@ int compute_max_flow(int *oxadj, int *oadj, int *ixadj, int *iadj, int *imap, in
 }
 
 /* workspace: 9n + 2nnz + 2 */
-int push_relabel_max_flow(int n, int *xadj, int *adj, int *wgt[], int s, int t, int *flow, int *aux) {
-  int *oxadj = xadj;
-  int *oadj = adj;
-  int *owgt = wgt;
-  int *auxptr;
+int push_relabel_max_flow(int n, int* xadj, int* adj, int* wgt, int s, int t, int* flow, int* aux) {
+  int* oxadj = xadj;
+  int* oadj = adj;
+  int* owgt = wgt;
+  int* auxptr;
   int nnz = xadj[n];
-  int *ixadj = u_alloc(n+2, &auxptr);
-  int *iadj = u_alloc(nnz, &auxptr);
-  int *imap = u_alloc(nnz, &auxptr); 
-  int *H = u_alloc(n, &auxptr);
-  int *E = u_alloc(n, &auxptr);
-  int *next = u_alloc(n, &auxptr);
-  int *L = u_alloc(n, &auxptr);
-  int *iv = u_alloc(n, &auxptr);
-  int *ie = u_alloc(n, &auxptr);
-  int *ov = u_alloc(n, &auxptr);
-  int *oe = u_alloc(n, &auxptr);
+  int* ixadj = u_alloc(n+2, &auxptr);
+  int* iadj = u_alloc(nnz, &auxptr);
+  int* imap = u_alloc(nnz, &auxptr); 
+  int* H = u_alloc(n, &auxptr);
+  int* E = u_alloc(n, &auxptr);
+  int* next = u_alloc(n, &auxptr);
+  int* L = u_alloc(n, &auxptr);
+  int* iv = u_alloc(n, &auxptr);
+  int* ie = u_alloc(n, &auxptr);
+  int* ov = u_alloc(n, &auxptr);
+  int* oe = u_alloc(n, &auxptr);
   /* initialize */
   u_graph_reverse(n, xadj, adj, wgt, ixadj, iadj, imap);
   for(int v=0; v<n; v++) { 
@@ -88,7 +90,7 @@ int push_relabel_max_flow(int n, int *xadj, int *adj, int *wgt[], int s, int t, 
     E[s] -= wgt[j];
   }
   for(int rj=ixadj[s]; rj<ixadj[s+1]; rj++) {
-    int w = iadj[j];
+    int w = iadj[rj];
     int j = imap[rj];
     flow[j] -= E[w];
   }
