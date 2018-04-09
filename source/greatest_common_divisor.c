@@ -1,4 +1,4 @@
-int greatestCommonDivisor(int x, int y) {
+int greatest_common_divisor(int x, int y) {
   int a = x;
   int b = y;
   int t = b % a;

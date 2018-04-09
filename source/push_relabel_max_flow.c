@@ -1,4 +1,4 @@
-void moveToFront(int *L, int *_lptr, int u) {
+void move_to_front(int *L, int *_lptr, int u) {
   int lptr = *_lptr;
   for(int i=lptr; i>0; i--) {
     L[i] = L[i-1];
@@ -40,7 +40,7 @@ void push(int *E, int df, int u, int *flow, int *iv, int *ie, int *ov, int *oe, 
   }
 }
 
-int computeMaxflow(int *oxadj, int *oadj, int *ixadj, int *iadj, int *imap, int *flow, int s) {
+int compute_max_flow(int *oxadj, int *oadj, int *ixadj, int *iadj, int *imap, int *flow, int s) {
   int maxflow = 0;
   for(int j=oxadj[s]; j<oxadj[s+1]; j++) {
     maxflow += flow[j];
@@ -53,7 +53,7 @@ int computeMaxflow(int *oxadj, int *oadj, int *ixadj, int *iadj, int *imap, int 
 }
 
 /* workspace: 9n + 2nnz + 2 */
-int pushRelabelMaxFlow(int n, int *xadj, int *adj, int *wgt[], int s, int t, int *flow, int *aux) {
+int push_relabel_max_flow(int n, int *xadj, int *adj, int *wgt[], int s, int t, int *flow, int *aux) {
   int *oxadj = xadj;
   int *oadj = adj;
   int *owgt = wgt;
@@ -152,7 +152,7 @@ int pushRelabelMaxFlow(int n, int *xadj, int *adj, int *wgt[], int s, int t, int
       }
     }
     if(H[u] > height) {
-      moveToFront(L, &lptr, u);
+      move_to_front(L, &lptr, u);
     }
     lptr ++;
     u = L[lptr];
@@ -161,5 +161,5 @@ int pushRelabelMaxFlow(int n, int *xadj, int *adj, int *wgt[], int s, int t, int
   for(int j=0; j<nnz; j++) {
     if(flow[j] < 0) { flow[j] = 0; }
   }
-  return computeMaxflow(oxadj, oadj, ixadj, iadj, imap, flow, s);
+  return compute_max_flow(oxadj, oadj, ixadj, iadj, imap, flow, s);
 } 

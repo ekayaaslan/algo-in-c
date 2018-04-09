@@ -55,7 +55,7 @@ void pq_build(int *items, int size) {
   }
 }
 
-void pq_updateAt(int at, int item, int *items, int size) {
+void pq_update_at(int at, int item, int *items, int size) {
   if(item < items[at]) {
     items[at] = item;
     downheap(at, items, size);
@@ -65,7 +65,7 @@ void pq_updateAt(int at, int item, int *items, int size) {
   }
 }
 
-void pq_removeAt(int at, int *items, int *_size) {
+void pq_remove_at(int at, int *items, int *_size) {
   int size = *_size;
   if(at < size-1) {
     int item = items[size-1];

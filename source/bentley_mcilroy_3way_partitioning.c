@@ -1,4 +1,4 @@
-void bentleyMcIlroy3wayPartitioning(int *items, int size, int pivot, int *indices) {
+void bentley_mcilroy_3way_partitioning(int *items, int size, int pivot, int *indices) {
   int lo = 0;
   int hi = size-1;
   int elo = lo;

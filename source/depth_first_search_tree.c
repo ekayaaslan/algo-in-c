@@ -1,20 +1,4 @@
-int push(int item, int items[], int size[]) {
-  items[size[0]] = item;
-  size[0] ++;
-  return 0;
-}
-
-int pop(int items[], int size[], int ret[]) {
-  size[0] --;
-  ret[0] = items[size[0]];
-  return 0;
-}
-
-int reset(int items[], int size[]) {
-  size[0] = 0;
-}
-
-int depthFirstSearchTree(int n, int *xadj, int *adj, int source, int *parent, int *aux) {
+int depth_first_search_tree(int n, int *xadj, int *adj, int source, int *parent, int *aux) {
   int *auxptr = aux;
   int *active = u_alloc(size, &auxptr);
   int *visit = u_alloc(size, &auxptr);
