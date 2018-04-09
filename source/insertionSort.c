@@ -1,15 +1,10 @@
-int insertionSort(int items[], int size) {
+void insertionSort(int *items, int size) {
   for(int i=1; i<size; i++) {
-    int item = items[i];
-    int index = i;
-    while(item < items[index-1]) {
-      items[index] = items[index-1];
-      index --;
-      if(index == 0) {
-        break;
-      }
+    int pivot = items[i];
+    for(int j=i; j>0; j--) {
+      if(items[j-1] <= pivot) { break; }
+      items[j] = items[j-1];
     }
-    items[index] = item;
+    items[i] = pivot;
   }
-  return 0;
 }

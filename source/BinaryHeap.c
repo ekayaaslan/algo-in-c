@@ -1,4 +1,4 @@
-void upheap(int at, int *items) {
+void pq_upheap(int at, int *items) {
   int item = items[at];
   int cur = at;
   while(cur > 0) {
@@ -12,7 +12,7 @@ void upheap(int at, int *items) {
   items[cur] = item;
 }
 
-void downheap(int at, int *items, int size) {
+void pq_downheap(int at, int *items, int size) {
   int item = items[at];
   int cur = at;
   while(cur < size/2) {
@@ -31,14 +31,14 @@ void downheap(int at, int *items, int size) {
   items[cur] = item;
 }
 
-void insert(int item, int *items, int *_size) {
+void pq_insert(int item, int *items, int *_size) {
   int size = *_size;
   items[size] = item;
   upheap(size, items);
   *_size = size+1;
 }
 
-int remove(int *items, int *_size) {
+int pq_remove(int *items, int *_size) {
   int item = items[0];
   int size = *_size;
   if(size > 1) {
@@ -49,14 +49,13 @@ int remove(int *items, int *_size) {
   return item;
 }
 
-int build(int *items, int size) {
+void pq_build(int *items, int size) {
   for(int i=size/2-1; i>=0; i--) {
     downheap(i, items, size);
   }
-  return 0;
 }
 
-void updateAt(int at, int item, int *items, int size) {
+void pq_updateAt(int at, int item, int *items, int size) {
   if(item < items[at]) {
     items[at] = item;
     downheap(at, items, size);
@@ -66,7 +65,7 @@ void updateAt(int at, int item, int *items, int size) {
   }
 }
 
-void removeAt(int at, int *items, int *_size) {
+void pq_removeAt(int at, int *items, int *_size) {
   int size = *_size;
   if(at < size-1) {
     int item = items[size-1];
