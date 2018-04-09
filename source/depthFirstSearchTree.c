@@ -14,28 +14,28 @@ int reset(int items[], int size[]) {
   size[0] = 0;
 }
 
-int depthFirstSearchTree(int size, int xadj[], int adj[], int source, int aux[], int parent[]) {
+int depthFirstSearchTree(int n, int *xadj, int *adj, int source, int *parent, int *aux) {
   int *auxptr = aux;
-  int *stack = auxptr; auxptr += size;
-  int *visited = auxptr; auxptr += size;
-  for(int vertex=0; vertex<size; vertex++) { 
-    parent[vertex] = -1;
-    visited[vertex] = 0;
+  int *active = u_alloc(size, &auxptr);
+  int *visit = u_alloc(size, &auxptr);
+  for(int v=0; v<n; v++) { 
+    parent[v] = -1;
+    visit[v] = 0;
   }
-  int stackSize = 0;
-  stack[stackSize ++] = source;
-  visited[source] = 1;
-  while(stackSize > 0) {
-    int vertex = stack[-- stackSize];
-    int edge = xadj[vertex];
-    while(edge < xadj[vertex+1]) {
-      int neighbor = adj[edge];
-      if(!visited[neighbor]) {
-        stack[stackSize ++] = neighbor;
-        visited[neighbor] = 1;
-        parent[neighbor] = vertex;
+  int asize;
+  s_reset(active, &asize);
+  active[asize ++] = source;
+  s_push(source, active, &asize);
+  visit[source] = 1;
+  while(asize > 0) {
+    int v = s_pop(active, &asize);
+    for(int j=xadj[v]; j<xadj[v+1]; j++) {
+      int w = adj[j];
+      if(!visited[w]) {
+        s_push(w, active, &asize);
+        visit[w] = 1;
+        parent[w] = v;
       }
-      edge ++;
     }
   }
   return 0;

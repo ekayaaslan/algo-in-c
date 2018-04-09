@@ -73,3 +73,8 @@ void pq_removeAt(int at, int *items, int *_size) {
   }
   *_size = size-1;
 }
+
+void pq_reset(int *items, int *_size) {
+  *_size = 0;
+}
+

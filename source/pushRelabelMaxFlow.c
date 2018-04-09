@@ -1,197 +1,165 @@
-int minOf(int x, int y) {
-  return (x<y)? x: y;
-}
-
-void moveToFront(int L[], int index, int pivot) {
-  for(int i=index; i>0; i--) {
+void moveToFront(int *L, int *_lptr, int u) {
+  int lptr = *_lptr;
+  for(int i=lptr; i>0; i--) {
     L[i] = L[i-1];
   }
-  L[0] = pivot;
+  L[0] = u;
+  *_lptr = 0;
 }
 
-void relabel(int vin[], int ein[], int eout[], int weight[], int flow[], int H[], int pivot, int size, int next[]) {
-  int minHeight = 2 * size;
-  int vertex = next[pivot];
-  while(vertex != pivot) {
-    int edge = (vin[vertex]==pivot)? ein[vertex]: eout[vertex];
-    int w = (vin[vertex]==pivot)? weight[edge]: 0;
-    int f = (vin[vertex]==pivot)? flow[edge]: -flow[edge];
-    if(w > f) {
-      minHeight = minOf(minHeight, H[vertex]);
+void relabel(int *iv, int *ie, int *oe, int *wgt, int *flow, int *H, int u, int n, int *next) {
+  int min_heigth = 2 * n;
+  int v = next[u];
+  while(v != u) {
+    if(ie[v] == u) {
+      int j = ie[v];
+      if(wgt[j] > flow[j]) {
+        min_height = u_min(min_height, H[v]);
+      }
+    }else {
+      int j = oe[v];
+      if(flow[j] > 0) {
+        min_height = u_min(min_height, H[v]);
+      }
     }
-    vertex = next[vertex];
+    v = next[v];
   }
-  H[pivot] = minHeight + 1;
+  H[u] = min_height + 1;
 }
 
-void push(int E[], int w, int f, int pivot, int flow[], int vin[], int ein[], int vout[], int eout[], int vertex) {
-  int deltaf = MIN(E[pivot], w-f);
-  E[vertex] += deltaf;
-  if(vin[vertex] == pivot) {
-    flow[ein[vertex]] += deltaf;
+void push(int *E, int df, int u, int *flow, int *iv, int *ie, int *ov, int *oe, int v) {
+  E[v] += df;
+  if(iv[v] == u) {
+    int j = ie[v];
+    flow[j] += df;
   }
-  E[pivot] -= deltaf;
-  if(vout[vertex] == pivot) {
-    flow[eout[vertex]] -= deltaf;
-  }
-}
-
-void computeMaxflow(int maxflow[], int outxadj[], int outadj[], int inxadj[], int inadj[], int inmap[], int flow[], int source) {
-  int edge;
-  maxflow[0] = 0;
-  edge = outxadj[source];
-  while(edge < outxadj[source+1]) {
-    maxflow[0] += flow[edge];
-    edge ++;
-  }
-  edge = inxadj[source];
-  while(edge < inxadj[source+1]) {
-    maxflow[0] -= flow[inmap[edge]];
-    edge ++;
+  E[u] -= df;
+  if(ov[v] == u) {
+    int j = oe[v];
+    flow[j] -= df;
   }
 }
 
-void transpose(int size, int outxadj[], int outadj[], int inoutweight[], int inxadj[], int inadj[], int inmap[]) {
-  for(int i=0; i<size+2; i++) { inxadj[i] = 0; }
-  for(int vertex=0; vertex<size; vertex++) {
-    int edge = outxadj[vertex];
-    while(edge < outxadj[vertex+1]) {
-      int neighbor = outadj[edge];
-      inxadj[neighbor+2] ++;
-      edge ++;
-    }
+int computeMaxflow(int *oxadj, int *oadj, int *ixadj, int *iadj, int *imap, int *flow, int s) {
+  int maxflow = 0;
+  for(int j=oxadj[s]; j<oxadj[s+1]; j++) {
+    maxflow += flow[j];
   }
-  for(int vertex=0; vertex<size; vertex++) {
-    inxadj[vertex+2] += inxadj[vertex+1];
+  for(int rj=ixadj[s]; rj<ixadj[s+1]; rj++) {
+    int j = imap[rj];
+    maxflow -= flow[j];
   }
-  for(int vertex=0; vertex<size; vertex++) {
-    int edge = outxadj[vertex];
-    while(edge < outxadj[vertex+1]) {
-      int neighbor = outadj[edge];
-      int inEdge = inxadj[neighbor+1];
-      inadj[inEdge] = vertex;
-      inmap[inEdge] = edge;
-      inxadj[neighbor+1] ++;
-      edge ++;
-    }
-  }
+  return maxflow;
 }
 
-/* workspace: 9n + 2m + 2 */
-int pushRelabelMaxFlow(int size, int xadj[], int adj[], int weight[], int source, int terminal, int flow[], int maxflow[], int workspace[]) {
-  int *outxadj = xadj;
-  int *outadj = adj;
-  int *outweight = weight;
-  int *wsptr = workspace;
-  int *inxadj = wsptr; wsptr+=size+2;
-  int *inadj = wsptr; wsptr+=xadj[size];
-  int *inmap = wsptr; wsptr+=xadj[size];
-  int *H = wsptr; wsptr+=size;
-  int *E = wsptr; wsptr+=size;
-  int *next = wsptr; wsptr+=size;
-  int *L = wsptr; wsptr+=size;
-  int *vin = wsptr; wsptr+=size;
-  int *ein = wsptr; wsptr+=size;
-  int *vout = wsptr; wsptr+=size;
-  int *eout = wsptr; wsptr+=size;
-  int edge;
+/* workspace: 9n + 2nnz + 2 */
+int pushRelabelMaxFlow(int n, int *xadj, int *adj, int *wgt[], int s, int t, int *flow, int *aux) {
+  int *oxadj = xadj;
+  int *oadj = adj;
+  int *owgt = wgt;
+  int *auxptr;
+  int nnz = xadj[n];
+  int *ixadj = u_alloc(n+2, &auxptr);
+  int *iadj = u_alloc(nnz, &auxptr);
+  int *imap = u_alloc(nnz, &auxptr); 
+  int *H = u_alloc(n, &auxptr);
+  int *E = u_alloc(n, &auxptr);
+  int *next = u_alloc(n, &auxptr);
+  int *L = u_alloc(n, &auxptr);
+  int *iv = u_alloc(n, &auxptr);
+  int *ie = u_alloc(n, &auxptr);
+  int *ov = u_alloc(n, &auxptr);
+  int *oe = u_alloc(n, &auxptr);
   /* initialize */
-  transpose(size, outxadj, outadj, outweight, inxadj, inadj, inmap);
-  for(int vertex=0; vertex<size; vertex++) { 
-    flow[vertex] = 0; 
-    H[vertex] = 0;
-    E[vertex] = 0;
-    vin[vertex] = -1;
-    vout[vertex] = -1;
+  u_graph_reverse(n, xadj, adj, wgt, ixadj, iadj, imap);
+  for(int v=0; v<n; v++) { 
+    flow[v] = 0; 
+    H[v] = 0;
+    E[v] = 0;
+    iv[v] = -1;
+    ov[v] = -1;
   }
   /* preflow */
-  H[source] = size;
-  edge = outxadj[source];
-  while(edge < outxadj[source+1]) {
-    int vertex = outadj[edge];
-    int weight = outweight[edge];
-    flow[edge] += weight;
-    E[vertex] += weight;
-    E[source] -= weight;
-    edge ++;
+  H[s] = n;
+  for(int j=oxadj[s]; j<oxadj[s+1]; j++) {
+    int w = oadj[j];
+    flow[j] += wgt[j];
+    E[w] += wgt[j];
+    E[s] -= wgt[j];
   }
-  edge = inxadj[source];
-  while(edge < inxadj[source+1]) {
-    int vertex = inadj[edge];
-    flow[inmap[edge]] -= E[vertex];
-    edge ++;
+  for(int rj=ixadj[s]; rj<ixadj[s+1]; rj++) {
+    int w = iadj[j];
+    int j = imap[rj];
+    flow[j] -= E[w];
   }
-  int index = 0;
-  for(int vertex=0; vertex<size; vertex++) {
-    if(vertex != source) {
-      if(vertex != terminal) {
-        L[index ++] = vertex;
-      }
+  int lptr = 0;
+  for(int v=0; v<n; v++) {
+    if(v != s && v != t) {
+        L[lptr ++] = v;
     }
   }
-  L[index] = -1;
+  L[lptr] = -1;
   /* flow */
-  index = 0;
-  int pivot = L[index];
-  while(pivot >= 0) {
-    int height = H[pivot];
-    int vertex = pivot;
+  lptr = 0;
+  int u = L[lptr];
+  while(u >= 0) {
+    int height = H[u];
+    int v = u;
     /* discharge */
-    edge = outxadj[pivot];
-    while(edge < outxadj[pivot+1]) {
-      int neighbor = outadj[edge];
-      vin[neighbor] = pivot;
-      ein[neighbor] = edge;
-      next[vertex] = neighbor;
-      vertex = neighbor;
-      edge ++;
+    for(int j=oxadj[u]; j<oxadj[u+1]; j++) {
+      int w = oadj[j];
+      iv[w] = u;
+      ie[w] = j;
+      next[v] = w;
+      v = w;
     }
-    edge = inxadj[pivot];
-    while(edge < inxadj[pivot+1]) {
-      int neighbor = inadj[edge];
-      vout[neighbor] = pivot;
-      eout[neighbor] = inmap[edge];
-      if(vin[neighbor] != pivot) {
-        next[vertex] = neighbor;
-        vertex = neighbor;
+    for(int rj=ixadj[u]; rj<ixadj[u+1]; rj++) {
+      int w = iadj[rj];
+      int j = imap[rj];
+      ov[w] = u;
+      oe[w] = j;
+      if(iv[w] != u) {
+        next[v] = w;
+        v = w;
       }
-      edge ++;
     }
-    next[vertex] = pivot;
-    vertex = next[pivot];
-    while(E[pivot] > 0) {
-      if(vertex == pivot) {
-        relabel(vin, ein, eout, weight, flow, H, pivot, size, next);
-        vertex = next[pivot];
+    next[v] = u;
+    v = next[u];
+    while(E[u] > 0) {
+      if(v == u) {
+        relabel(iv, ie, oe, wgt, flow, H, u, n, next);
+        v = next[u];
       }else {
-        int flagChange = 0;
-        if(vin[vertex] == pivot || vout[vertex] == pivot) {
-          int j = (vin[vertex]==pivot)? ein[vertex]: eout[vertex];
-          int w = (vin[vertex]==pivot)? weight[j]: 0;
-          int f = (vin[vertex]==pivot)? flow[j]: -flow[j];
-          if(w > f) {
-            if(H[pivot] == H[vertex]+1) {
-              push(E, w, f, pivot, flow, vin, ein, vout, eout, vertex);
-              flagChange = 1;
+        if(H[u] == H[v]+1) {
+          if(ie[v] == u) {
+            int j = ie[v];
+            if(wgt[j] > flow[j]) {
+              int df = u_min(E[u], wgt[j]-flow[j]);
+              push(E, df, u, flow, iv, ie, ov, oe, v);
+              v = next[v];
             }
+            continue;
+          }
+          if(oe[v] == u) {
+            int j = oe[v];
+            if(flow[j] > 0) {
+              int df = u_min(E[u], flow[j]);
+              push(E, df, u, flow, iv, ie, ov, oe, v);
+            }
+            continue;
           }
         }
-        if(flagChange) {
-          vertex = next[vertex];
-        }
       }
     }
-    if(H[pivot] > height) {
-      moveToFront(L, index, pivot);
-      index = 0;
+    if(H[u] > height) {
+      moveToFront(L, &lptr, u);
     }
-    index ++;
-    pivot = L[index];
+    lptr ++;
+    u = L[lptr];
   }
   /* maxflow */
-  for(int edge=0; edge<xadj[size]; edge++) {
-    if(flow[edge] < 0) { flow[edge] = 0; }
+  for(int j=0; j<nnz; j++) {
+    if(flow[j] < 0) { flow[j] = 0; }
   }
-  computeMaxflow(maxflow, outxadj, outadj, inxadj, inadj, inmap, flow, source);
-  return 0;
+  return computeMaxflow(oxadj, oadj, ixadj, iadj, imap, flow, s);
 } 

@@ -1,4 +1,4 @@
-void bst_insert(int item, int *item, int *_size, int *left, int *right) {
+void bst_insert(int item, int *items, int *_size, int *left, int *right) {
   int size = *_size;
   int c = 0;
   while(c < size) {
@@ -16,7 +16,7 @@ void bst_insert(int item, int *item, int *_size, int *left, int *right) {
   *_size = size+1;
 }
 
-int bst_contains(int item, int *item, int size, int *left, int *right) {
+int bst_contains(int item, int *items, int size, int *left, int *right) {
   if(size == 0) { return 0; }
   int c = 0;
   while(c != -1) {
@@ -24,4 +24,8 @@ int bst_contains(int item, int *item, int size, int *left, int *right) {
     c = (item < items[c])? left[c]: right[c];
   }
   return 0;
+}
+
+void bst_reset(int *items, int *_size, int *left, int *right) {
+  *_size = 0;
 }
