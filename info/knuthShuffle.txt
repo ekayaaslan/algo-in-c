@@ -1,2 +1,0 @@
-This algorithm is known as Knuth shuffle after Donald Knuth. Also known as Fisher–Yates shuffle.
-https://en.wikipedia.org/wiki/Fisher–Yates_shuffle
