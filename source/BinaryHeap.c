@@ -1,4 +1,4 @@
-void upheap(int at, int items[]) {
+void upheap(int at, int *items) {
   int item = items[at];
   int cur = at;
   while(cur > 0) {
@@ -12,7 +12,7 @@ void upheap(int at, int items[]) {
   items[cur] = item;
 }
 
-void downheap(int at, int items[], int size) {
+void downheap(int at, int *items, int size) {
   int item = items[at];
   int cur = at;
   while(cur < size/2) {
@@ -31,33 +31,32 @@ void downheap(int at, int items[], int size) {
   items[cur] = item;
 }
 
-int insert(int item, int items[], int size[]) {
-  items[size[0]] = item;
-  size[0] ++;
-  upheap(size[0]-1, items);
-  return 0;
+void insert(int item, int *items, int *_size) {
+  int size = *_size;
+  items[size] = item;
+  upheap(size, items);
+  *_size = size+1;
 }
 
-int remove(int items[], int size[], int ret[]) {
-  ret[0] = items[0];
-  if(size[0] > 1) {
-    items[0] = items[size[0]-1];
-    size[0] --;
-    downheap(0, items, size[0]);
-  }else {
-    size[0] = 0;
+int remove(int *items, int *_size) {
+  int item = items[0];
+  int size = *_size;
+  if(size > 1) {
+    items[0] = items[size-1];
+    downheap(0, items, size);
   }
-  return 0;
+  *_size = size-1;
+  return item;
 }
 
-int build(int items[], int size) {
+int build(int *items, int size) {
   for(int i=size/2-1; i>=0; i--) {
     downheap(i, items, size);
   }
   return 0;
 }
 
-int updateAt(int at, int item, int items[], int size) {
+void updateAt(int at, int item, int *items, int size) {
   if(item < items[at]) {
     items[at] = item;
     downheap(at, items, size);
@@ -65,20 +64,13 @@ int updateAt(int at, int item, int items[], int size) {
     items[at] = item;
     upheap(at, items);
   }
-  return 0;
 }
 
-int removeAt(int at, int items[], int size[]) {
-  if(at < size[0]-1) {
-    int item = items[size[0]-1];
-    size[0] --;
-    updateAt(at, item, items, size[0]);
-  }else {
-    size[0] --;
+void removeAt(int at, int *items, int *_size) {
+  int size = *_size;
+  if(at < size-1) {
+    int item = items[size-1];
+    updateAt(at, item, items, size-1);
   }
-  return 0;
-}
-
-int reset(int items[], int size[]) {
-  size[0] = 0;
+  *_size = size-1;
 }
