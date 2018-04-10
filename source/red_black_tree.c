@@ -12,7 +12,9 @@ void recolor_parent(int p, int* left, int* right, int* parent, int* color) {
 
 void link(int v, int p, int* child, int* parent) {
   child[p] = v;
-  parent[v] = p;
+  if(v >= 0) {
+    parent[v] = p;
+  }
 }
 
 void link_parent(int p, int q, int* left, int* right, int* parent) {
@@ -63,29 +65,32 @@ void recolor_right(int v, int* left, int* right, int* parent, int* color) {
 }
 
 void recolor(int v, int* left, int* right, int* parent, int* color) {
+  if(parent[v] < 0) { return; }
   int p = parent[v];
   if(left[p] >= 0) {
     if(color[left[p]]) {
       if(right[p] >= 0) {
         if(color[right[p]]) {
           recolor_parent(p, left, right, parent, color);
-          if(parent[p] >= 0) {
-            recolor(p, left, right, parent, color);
-          }
+          recolor(p, left, right, parent, color);
           return;
         }
       }
       if(parent[p] >= 0) {
+        int q = parent[p];
         if(color[p]) {
           recolor_left(v, left, right, parent, color);
+          recolor(parent[q], left, right, parent, color);
         }
       }
     }
-  }else {
-    if(parent[p] >= 0) {
-      if(color[p]) {
-        recolor_right(v, left, right, parent, color);
-      }
+    return;
+  }
+  if(parent[p] >= 0) {
+    int q = parent[p];
+    if(color[p]) {
+      recolor_right(v, left, right, parent, color);
+      recolor(parent[q], left, right, parent, color);
     }
   }
 }
@@ -94,7 +99,5 @@ void rbt_insert(int item, int* items, int* _size, int* left, int* right, int* pa
   int size = *_size;
   parent[size] = bst_insert(item, items, _size, left, right);
   color[size] = 1; //red
-  if(size > 0) {
-    recolor(size, left, right, parent, color);
-  }
+  recolor(size, left, right, parent, color);
 }

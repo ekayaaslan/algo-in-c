@@ -1,7 +1,7 @@
 #include <stack.h>
 #include <util.h>
 
-int depth_first_search_tree(int n, int* xadj, int* adj, int s, int* parent, int* aux) {
+void depth_first_search_tree(int n, int* xadj, int* adj, int s, int* parent, int* aux) {
   int* auxptr = aux;
   int* active = u_alloc(n, &auxptr);
   int* visit = u_alloc(n, &auxptr);
@@ -24,5 +24,4 @@ int depth_first_search_tree(int n, int* xadj, int* adj, int s, int* parent, int*
       }
     }
   }
-  return 0;
 }
