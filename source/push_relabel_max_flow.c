@@ -1,4 +1,5 @@
 #include <util.h>
+#include <graph.h>
 
 void move_to_front(int* L, int* _lptr, int u) {
   int lptr = *_lptr;
@@ -73,7 +74,7 @@ int push_relabel_max_flow(int n, int* xadj, int* adj, int* wgt, int s, int t, in
   int* ov = u_alloc(n, &auxptr);
   int* oe = u_alloc(n, &auxptr);
   /* initialize */
-  u_graph_reverse(n, xadj, adj, wgt, ixadj, iadj, imap);
+  graph_reverse(n, xadj, adj, ixadj, iadj, imap);
   for(int v=0; v<n; v++) { 
     flow[v] = 0; 
     H[v] = 0;
