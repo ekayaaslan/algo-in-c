@@ -21,19 +21,19 @@ Algorithms
 ---
 [Bentley McIlroy 3way Partition](/source/bentley_mcilroy_3way_partition.c) <br />
 [Graph Connected Components](/source/graph_connected_components.c) <br />
-[Depth First Search](/source/graph_depth_first_search.c) <br />
-[Graph Depth First Search Preorder](/source/graph_depth_first_search.c) <br />
-[Graph Depth First Search Postorder](/source/graph_depth_first_search.c) <br />
-[Tree Preorder](/source/tree.c) <br />
-[Tree Postorder](/source/tree.c) <br />
-[Topological Order](/source/graph_topological_order.c) <br />
+[Depth First Search](/source/depth_first_search.c) <br />
+[Graph Depth First Search Preorder](/source/graph_dfs_preorder.c) <br />
+[Graph Depth First Search Postorder](/source/graph_dfs_postorder.c) <br />
+[Tree Preorder](/source/tree_preorder.c) <br />
+[Tree Postorder](/source/tree_postorder.c) <br />
+[Topological Order](/source/topological_order.c) <br />
 [Greatest Common Divisor](/source/greatest_common_divisor.c) <br />
 [Heap Sort](/source/heap_sort.c) <br />
 [Insertion Sort](/source/insertion_sort.c) <br />
 [Knuth Shuffle](/source/knuth_shuffle.c) <br />
-[Kosarajo Sharir Strongly Connected Components](/source/kosarajo_sharir_strongly_connected_components.c) <br />
-[Push Relabel Maximum Flow](/source/push_relabel_maximum_flow.c) <br />
-[Quick Sort](/source/quick_sort.c) <br />
+[Kosarajo Sharir Strongly Connected Components](/source/kosarajo_sharir_scc.c) <br />
+[Push Relabel Maximum Flow](/source/push_relabel_max_flow.c) <br />
+[Quicksort](/source/quicksort.c) <br />
 Maximum Cardinality Bipartite Matching <br />
 Maximum Weighted Bipartite Matching <br />
 Hungarian Algorithm <br />
