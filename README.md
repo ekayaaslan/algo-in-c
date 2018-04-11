@@ -18,10 +18,8 @@ Union Find (to be implemented)
 
 Algorithms
 ---
-Bently McIlroy 3way Partitioning (to be tested)
-
+Bently McIlroy 3way Partitioning (to be tested) \\
 Graph Connected Components (to be tested)
-
 Depth First Search (to be tested)
 Graph Depth First Search Preorder (to be tested)
 Graph Depth First Search Postorder (to be tested)
