@@ -21,7 +21,7 @@ Disjoint Set <br />
 
 Algorithms (to be tested)
 ---
-[/source/bentley_mcilroy_3way_partition.c](Bentley McIlroy 3way Partition) <br />
+[Bentley McIlroy 3way Partition](/source/bentley_mcilroy_3way_partition.c) <br />
 Graph Connected Components <br />
 Depth First Search <br />
 Graph Depth First Search Preorder <br />
