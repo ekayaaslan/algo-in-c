@@ -8,19 +8,16 @@ The primary design principle is to be useful like all many others. Some more spe
 3) Avoid using recursion if not logarithmic or less.
 4) Efficiency matters. Operate on sparse graphs.
 
-Data Structures (to be tested)
+Data Structures
 ---
 [Binary Search Tree](/source/binary_search_tree.c) <br />
 [Priority Queue](/source/priority_queue.c) <br />
 [Stack](/source/stack.c) <br />
 [Queue](/source/queue.c) <br />
 [Red Black Tree](/source/red_black_tree.c) <br />
-
-Data Structures (to be implemented)
----
 Disjoint Set <br />
 
-Algorithms (to be tested)
+Algorithms
 ---
 [Bentley McIlroy 3way Partition](/source/bentley_mcilroy_3way_partition.c) <br />
 [Graph Connected Components](/source/graph_connected_components.c) <br />
@@ -37,9 +34,6 @@ Algorithms (to be tested)
 [Kosarajo Sharir Strongly Connected Components](/source/kosarajo_sharir_strongly_connected_components.c) <br />
 [Push Relabel Maximum Flow](/source/push_relabel_maximum_flow.c) <br />
 [Quick Sort](/source/quick_sort.c) <br />
-
-Algorithms (to be implemented)
----
 Maximum Cardinality Bipartite Matching <br />
 Maximum Weighted Bipartite Matching <br />
 Hungarian Algorithm <br />
