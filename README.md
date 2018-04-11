@@ -5,15 +5,16 @@ The primary design principle is to be useful like all many others. Some more spe
 
 1) Self-containment matters. No excessive use of other files in the library.
 2) No bulk allocation from memory, if needed an array of bytes should be provided in the parameter list from the callee.
-3) Avoid using recursion if not logarithmic or less. 
+3) Avoid using recursion if not logarithmic or less.
+4) Efficiency matters. Operate on sparse graphs.
 
 Data Structures (to be tested)
 ---
-Binary Search Tree <br />
-Priority Queue <br />
-Stack <br />
-Queue <br />
-Red Black Tree <br />
+[Binary Search Tree](/source/binary_search_tree.c) <br />
+[Priority Queue](/source/priority_queue.c) <br />
+[Stack](/source/stack.c) <br />
+[Queue](/source/queue.c) <br />
+[Red Black Tree](/source/red_black_tree.c) <br />
 
 Data Structures (to be implemented)
 ---
@@ -22,20 +23,20 @@ Disjoint Set <br />
 Algorithms (to be tested)
 ---
 [Bentley McIlroy 3way Partition](/source/bentley_mcilroy_3way_partition.c) <br />
-Graph Connected Components <br />
-Depth First Search <br />
-Graph Depth First Search Preorder <br />
-Graph Depth First Search Postorder <br />
-Tree Preorder <br />
-Tree Postorder <br />
-Topological Order <br />
-Greatest Common Divisor <br />
-Heap Sort <br />
-Insertion Sort <br />
-Knuth Shuffle <br />
-Kosarajo Sharir Strongly Connected Components <br />
-Push Relabel Maximum Flow <br />
-QuickSort <br />
+[Graph Connected Components](/source/graph_connected_components.c) <br />
+[Depth First Search](/source/graph_depth_first_search.c) <br />
+[Graph Depth First Search Preorder](/source/graph_depth_first_search.c) <br />
+[Graph Depth First Search Postorder](/source/graph_depth_first_search.c) <br />
+[Tree Preorder](/source/tree.c) <br />
+[Tree Postorder](/source/tree.c) <br />
+[Topological Order](/source/graph_topological_order.c) <br />
+[Greatest Common Divisor](/source/greatest_common_divisor.c) <br />
+[Heap Sort](/source/heap_sort.c) <br />
+[Insertion Sort](/source/insertion_sort.c) <br />
+[Knuth Shuffle](/source/knuth_shuffle.c) <br />
+[Kosarajo Sharir Strongly Connected Components](/source/kosarajo_sharir_strongly_connected_components.c) <br />
+[Push Relabel Maximum Flow](/source/push_relabel_maximum_flow.c) <br />
+[Quick Sort](/source/quick_sort.c) <br />
 
 Algorithms (to be implemented)
 ---
