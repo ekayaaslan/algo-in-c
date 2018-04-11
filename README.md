@@ -31,7 +31,7 @@ Algorithms
 [Heap Sort](/source/heap_sort.c) <br />
 [Insertion Sort](/source/insertion_sort.c) <br />
 [Knuth Shuffle](/source/knuth_shuffle.c) <br />
-[Kosarajo Sharir Strongly Connected Components](/source/kosarajo_sharir_scc.c) <br />
+[Kosaraju Sharir Strongly Connected Components](/source/kosaraju_sharir_scc.c) <br />
 [Push Relabel Maximum Flow](/source/push_relabel_max_flow.c) <br />
 [Quicksort](/source/quicksort.c) <br />
 Maximum Cardinality Bipartite Matching <br />
