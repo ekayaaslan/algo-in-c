@@ -1,4 +1,5 @@
 #include <stack.h>
+#include <shuffle.h>
 #include <partition.h>
 
 void quicksort_rec(int* items, int lo, int hi) {
