@@ -55,7 +55,7 @@ int compute_max_flow(int* oxadj, int* oadj, int* ixadj, int* iadj, int* imap, in
   return maxflow;
 }
 
-/* workspace: 9n + 2nnz + 2 */
+/* aux: 9n + 2nnz + 2 */
 int push_relabel_max_flow(int n, int* xadj, int* adj, int* wgt, int s, int t, int* flow, int* aux) {
   int* oxadj = xadj;
   int* oadj = adj;
@@ -74,7 +74,7 @@ int push_relabel_max_flow(int n, int* xadj, int* adj, int* wgt, int s, int t, in
   int* ov = u_alloc(n, &auxptr);
   int* oe = u_alloc(n, &auxptr);
   /* initialize */
-  graph_reverse(n, xadj, adj, ixadj, iadj, imap);
+  graph_reverse_map(n, xadj, adj, ixadj, iadj, imap);
   for(int v=0; v<n; v++) { 
     flow[v] = 0; 
     H[v] = 0;

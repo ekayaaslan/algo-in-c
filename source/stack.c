@@ -11,6 +11,10 @@ int s_pop(int* items, int* _size) {
   return item;
 }
 
+int s_peek(int* items, int size) {
+  return items[size-1];
+}
+
 void s_reset(int* items, int* _size) {
   *_size = 0;
 } 
