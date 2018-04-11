@@ -7,62 +7,68 @@ The primary design principle is to be useful like all many others. Some more spe
 2) No bulk allocation from memory, if needed an array of bytes should be provided in the parameter list from the callee.
 3) Avoid using recursion if not logarithmic or less. 
 
-Data Structures
+Data Structures (to be tested)
 ---
-Binary Search Tree (to be tested) <br />
-Priority Queue (to be tested) <br />
-Stack (to be tested) <br />
-Queue (to be tested) <br />
-Red Black Tree (to be tested) <br />
-Disjoint Set (to be implemented) <br />
+Binary Search Tree <br />
+Priority Queue <br />
+Stack <br />
+Queue <br />
+Red Black Tree <br />
 
-Algorithms
+Data Structures (to be implemented)
 ---
-Bently McIlroy 3way Partitioning (to be tested) <br />
-Graph Connected Components (to be tested) <br />
-Depth First Search (to be tested) <br />
-Graph Depth First Search Preorder (to be tested) <br />
-Graph Depth First Search Postorder (to be tested) <br />
-Tree Preorder (to be tested) <br />
-Tree Postorder (to be tested) <br />
-Topological Order (to be tested) <br />
-Greatest Common Divisor (to be tested) <br />
-Heap Sort (to be tested) <br />
-Insertion Sort (to be tested) <br />
-Knuth Shuffle (to be tested) <br />
-Kosarajo Sharir Strongly Connected Components (to be tested) <br />
-Push Relabel Maximum Flow (to be tested) <br />
-QuickSort (to be tested) <br />
-Maximum Cardinality Bipartite Matching (to be implemented) <br />
-Maximum Weighted Bipartite Matching (to be implemented) <br />
-Hungarian Algorithm (to be implemented) <br />
-Edmond Blossom Algorithm (to be implemented) <br />
-Maximum Cardinality Matching (to be implemented) <br />
-Ford Fulkerson Maximum Flow (to be implemented) <br />
-Karp Mean Cycle (to be implemented) <br />
-Karp Sipser Randomized Matching (to be implemented) <br />
-Howard Mean Cycle (to be implemented) <br />
-Sloer Wegner Minimum Cut (to be implemented) <br />
-Dijsktra Shortest Path (to be implemented) <br />
-Bellman Ford Shortest Path (to be implemented) <br />
-Prim Minimum Spanning Tree (to be implemented) <br />
-Kruskal Minimum Spanning Tree (to be implemented) <br />
-Boruvska Minimum Spanning Tree (to be implemented) <br />
-Sieve of Erastothenes (to be implemented) <br />
-Counting Sort (to be implemented) <br />
-Quick Select (to be implemented) <br />
-Bipartite Stable Matching (to be implemented) <br />
-Eulerian Path (to be implemented) <br />
-Prime Factorization (to be implemented) <br />
-Euclid Extended Algorithm (to be implemented) <br />
-Modular Multiplicative Inverse (to be implemented) <br />
-Floyd Warshall All Pairs Shortest Path (to be implemented) <br />
-Merge Sort (to be implemented) <br />
-Manacher Longest Palindromic Substring (to be implemented) <br />
-Johnson All Pairs Shortest Path (to be implemented) <br />
-Jarvis Convex Hull (to be implemented) <br />
-Graham Scan (to be implemented) <br />
-Knuth Morris Pratt String Search (to be implemented) <br />
-Run Length Encoding (to be implemented) <br />
-Huffman Coding (to be implemented) <br />
-Lempel Zip Compression (to be implemented) <br />
+Disjoint Set <br />
+
+Algorithms (to be tested)
+---
+Bently McIlroy 3way Partitioning <br />
+Graph Connected Components <br />
+Depth First Search <br />
+Graph Depth First Search Preorder <br />
+Graph Depth First Search Postorder <br />
+Tree Preorder <br />
+Tree Postorder <br />
+Topological Order <br />
+Greatest Common Divisor <br />
+Heap Sort <br />
+Insertion Sort <br />
+Knuth Shuffle <br />
+Kosarajo Sharir Strongly Connected Components <br />
+Push Relabel Maximum Flow <br />
+QuickSort <br />
+
+Algorithms (to be implemented)
+---
+Maximum Cardinality Bipartite Matching <br />
+Maximum Weighted Bipartite Matching <br />
+Hungarian Algorithm <br />
+Edmond Blossom Algorithm <br />
+Maximum Cardinality Matching <br />
+Ford Fulkerson Maximum Flow <br />
+Karp Mean Cycle <br />
+Karp Sipser Randomized Matching <br />
+Howard Mean Cycle <br />
+Sloer Wegner Minimum Cut <br />
+Dijsktra Shortest Path <br />
+Bellman Ford Shortest Path <br />
+Prim Minimum Spanning Tree <br />
+Kruskal Minimum Spanning Tree <br />
+Boruvska Minimum Spanning Tree <br />
+Sieve of Erastothenes <br />
+Counting Sort <br />
+Quick Select <br />
+Bipartite Stable Matching <br />
+Eulerian Path <br />
+Prime Factorization <br />
+Euclid Extended Algorithm <br />
+Modular Multiplicative Inverse <br />
+Floyd Warshall All Pairs Shortest Path <br />
+Merge Sort <br />
+Manacher Longest Palindromic Substring <br />
+Johnson All Pairs Shortest Path <br />
+Jarvis Convex Hull <br />
+Graham Scan <br />
+Knuth Morris Pratt String Search <br />
+Run Length Encoding <br />
+Huffman Coding <br />
+Lempel Zip Compression <br />
