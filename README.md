@@ -14,7 +14,7 @@ Priority Queue (to be tested) <br />
 Stack (to be tested) <br />
 Queue (to be tested) <br />
 Red Black Tree (to be tested) <br />
-Union Find (to be implemented) <br />
+Disjoint Set (to be implemented) <br />
 
 Algorithms
 ---
@@ -48,3 +48,13 @@ Bellman Ford Shortest Path (to be implemented) <br />
 Prim Minimum Spanning Tree (to be implemented) <br />
 Kruskal Minimum Spanning Tree (to be implemented) <br />
 Boruvska Minimum Spanning Tree (to be implemented) <br />
+Sieve of Erastothenes (to be implemented) <br />
+Counting Sort (to be implemented) <br />
+Quick Select (to be implemented) <br />
+Bipartite Stable Matching (to be implemented) <br />
+Eulerian Path (to be implemented) <br />
+Prime Factorization (to be implemented) <br />
+Euclid Extended Algorithm (to be implemented) <br />
+Modular Multiplicative Inverse (to be implemented) <br />
+Floyd Warshall Algorithm (to be implemented) <br />
+Merge Sort (to be implemented) <br />
