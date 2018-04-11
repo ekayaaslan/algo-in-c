@@ -67,3 +67,5 @@ Knuth Morris Pratt String Search <br />
 Run Length Encoding <br />
 Huffman Coding <br />
 Lempel Zip Compression <br />
+Burrows Wheeler Transform <br />
+Breath First Search <br />
