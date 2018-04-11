@@ -9,42 +9,42 @@ The primary design principle is to be useful like all many others. Some more spe
 
 Data Structures
 ---
-Binary Search Tree (to be tested)
-Priority Queue (to be tested)
-Stack (to be tested)
-Queue (to be tested)
-Red Black Tree (to be tested)
-Union Find (to be implemented)
+Binary Search Tree (to be tested) <br />
+Priority Queue (to be tested) <br />
+Stack (to be tested) <br />
+Queue (to be tested) <br />
+Red Black Tree (to be tested) <br />
+Union Find (to be implemented) <br />
 
 Algorithms
 ---
-Bently McIlroy 3way Partitioning (to be tested)
-Graph Connected Components (to be tested)
-Depth First Search (to be tested)
-Graph Depth First Search Preorder (to be tested)
-Graph Depth First Search Postorder (to be tested)
-Tree Preorder (to be tested)
-Tree Postorder (to be tested)
-Topological Order (to be tested)
-Greatest Common Divisor (to be tested)
-Heap Sort (to be tested)
-Insertion Sort (to be tested)
-Knuth Shuffle (to be tested)
-Kosarajo Sharir Strongly Connected Components (to be tested)
-Push Relabel Maximum Flow (to be tested)
-QuickSort (to be tested)
-Maximum Cardinality Bipartite Matching (to be implemented)
-Maximum Weighted Bipartite Matching (to be implemented)
-Hungarian Algorithm (to be implemented)
-Edmond Blossom Algorithm (to be implemented)
-Maximum Cardinality Matching (to be implemented)
-Ford Fulkerson Maximum Flow (to be implemented)
-Karp Mean Cycle (to be implemented)
-Karp Sipser Randomized Matching (to be implemented)
-Howard Mean Cycle (to be implemented)
-Sloer Wegner Minimum Cut (to be implemented)
-Dijsktra Shortest Path (to be implemented)
-Bellman Ford Shortest Path (to be implemented)
-Prim Minimum Spanning Tree (to be implemented)
-Kruskal Minimum Spanning Tree (to be implemented)
-Boruvska Minimum Spanning Tree (to be implemented)
+Bently McIlroy 3way Partitioning (to be tested) <br />
+Graph Connected Components (to be tested) <br />
+Depth First Search (to be tested) <br />
+Graph Depth First Search Preorder (to be tested) <br />
+Graph Depth First Search Postorder (to be tested) <br />
+Tree Preorder (to be tested) <br />
+Tree Postorder (to be tested) <br />
+Topological Order (to be tested) <br />
+Greatest Common Divisor (to be tested) <br />
+Heap Sort (to be tested) <br />
+Insertion Sort (to be tested) <br />
+Knuth Shuffle (to be tested) <br />
+Kosarajo Sharir Strongly Connected Components (to be tested) <br />
+Push Relabel Maximum Flow (to be tested) <br />
+QuickSort (to be tested) <br />
+Maximum Cardinality Bipartite Matching (to be implemented) <br />
+Maximum Weighted Bipartite Matching (to be implemented) <br />
+Hungarian Algorithm (to be implemented) <br />
+Edmond Blossom Algorithm (to be implemented) <br />
+Maximum Cardinality Matching (to be implemented) <br />
+Ford Fulkerson Maximum Flow (to be implemented) <br />
+Karp Mean Cycle (to be implemented) <br />
+Karp Sipser Randomized Matching (to be implemented) <br />
+Howard Mean Cycle (to be implemented) <br />
+Sloer Wegner Minimum Cut (to be implemented) <br />
+Dijsktra Shortest Path (to be implemented) <br />
+Bellman Ford Shortest Path (to be implemented) <br />
+Prim Minimum Spanning Tree (to be implemented) <br />
+Kruskal Minimum Spanning Tree (to be implemented) <br />
+Boruvska Minimum Spanning Tree (to be implemented) <br />
