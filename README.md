@@ -56,5 +56,13 @@ Eulerian Path (to be implemented) <br />
 Prime Factorization (to be implemented) <br />
 Euclid Extended Algorithm (to be implemented) <br />
 Modular Multiplicative Inverse (to be implemented) <br />
-Floyd Warshall Algorithm (to be implemented) <br />
+Floyd Warshall All Pairs Shortest Path (to be implemented) <br />
 Merge Sort (to be implemented) <br />
+Manacher Longest Palindromic Substring (to be implemented) <br />
+Johnson All Pairs Shortest Path (to be implemented) <br />
+Jarvis Convex Hull (to be implemented) <br />
+Graham Scan (to be implemented) <br />
+Knuth Morris Pratt String Search (to be implemented) <br />
+Run Length Encoding (to be implemented) <br />
+Huffman Coding (to be implemented) <br />
+Lempel Zip Compression (to be implemented) <br />
