@@ -15,3 +15,11 @@ int* u_alloc(int size, int **_ptr) {
   *_ptr = ptr + size;
   return ptr;
 }
+
+void u_random(int seed) {
+  srand(seed);
+}
+
+int u_next(int n) {
+  return rand() % n;
+}
